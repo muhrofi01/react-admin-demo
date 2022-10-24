@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
-import { CompletedField } from './CustomField';
+import { List, Datagrid, TextField, ReferenceField, BooleanField } from 'react-admin';
 import { Box } from '@mui/material';
 import Aside from './Aside';
 
@@ -14,7 +13,7 @@ const TodoList = () => {
                         <ReferenceField source="userId" reference="users" />
                         <TextField source="id" />
                         <TextField source="title" />
-                        <CompletedField source="completed" />
+                        <BooleanField source="completed" />
                     </Datagrid>
                 </List>
             </Box>
