@@ -13,6 +13,10 @@ import OrderChart from './OrderChart';
 
 import { Order } from '../types';
 
+import CardWithIcon from './CardWithIcon';
+import UserIcon from '@mui/icons-material/Group';
+import TodoIcon from '@mui/icons-material/List';
+
 interface OrderStats {
     revenue: number;
     nbNewOrders: number;
@@ -24,6 +28,8 @@ interface State {
     pendingOrders?: Order[];
     recentOrders?: Order[];
     revenue?: string;
+    users?: number;
+    todos?: number;
 }
 
 const styles = {
@@ -91,11 +97,28 @@ const Dashboard = () => {
         <div>
             <div style={styles.flexColumn as CSSProperties}>
                 <Welcome />
-                <MonthlyRevenue value={revenue} />
+                
+                <CardWithIcon
+                    to="/users"
+                    icon={UserIcon}
+                    title={'Users'}
+                    subtitle={100}
+                />
+
+                <VerticalSpacer />
+
+                <CardWithIcon
+                    to="/todos"
+                    icon={TodoIcon}
+                    title={'Todos'}
+                    subtitle={100}
+                />
+
+                {/* <MonthlyRevenue value={revenue} />
                 <VerticalSpacer />
                 <NbNewOrders value={nbNewOrders} />
                 <VerticalSpacer />
-                <PendingOrders orders={pendingOrders} />
+                <PendingOrders orders={pendingOrders} /> */}
             </div>
         </div>
     ) : isSmall ? (
@@ -103,7 +126,27 @@ const Dashboard = () => {
             <div style={styles.singleCol}>
                 <Welcome />
             </div>
+
             <div style={styles.flex}>
+                <CardWithIcon
+                    to="/users"
+                    icon={UserIcon}
+                    title={'Users'}
+                    subtitle={100}
+                />
+
+                <Spacer />
+
+                
+                <CardWithIcon
+                    to="/todos"
+                    icon={TodoIcon}
+                    title={'Todos'}
+                    subtitle={100}
+                />
+            </div>
+
+            {/* <div style={styles.flex}>
                 <MonthlyRevenue value={revenue} />
                 <Spacer />
                 <NbNewOrders value={nbNewOrders} />
@@ -113,12 +156,39 @@ const Dashboard = () => {
             </div>
             <div style={styles.singleCol}>
                 <PendingOrders orders={pendingOrders} />
-            </div>
+            </div> */}
+            
         </div>
     ) : (
         <>
             <Welcome />
+            
             <div style={styles.flex}>
+                <div style={styles.leftCol}>
+                    <div style={styles.flex}>
+                        <CardWithIcon
+                            to="/users"
+                            icon={UserIcon}
+                            title={'Users'}
+                            subtitle={100}
+                        />
+
+                        <Spacer />
+
+                        
+                        <CardWithIcon
+                            to="/todos"
+                            icon={TodoIcon}
+                            title={'Todos'}
+                            subtitle={100}
+                        />
+                    </div>
+                </div>
+                <div style={styles.rightCol}>
+                </div>
+            </div>
+            
+            {/* <div style={styles.flex}>
                 <div style={styles.leftCol}>
                     <div style={styles.flex}>
                         <MonthlyRevenue value={revenue} />
@@ -139,7 +209,8 @@ const Dashboard = () => {
                         <NewCustomers />
                     </div>
                 </div>
-            </div>
+            </div> */}
+
         </>
     );
 };
