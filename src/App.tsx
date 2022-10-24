@@ -21,6 +21,7 @@ import Segments from './segments/Segments';
 
 import jsonServerProvider from 'ra-data-json-server';
 import users from './users';
+import todos from './todos';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
@@ -65,7 +66,7 @@ const App = () => {
             <Resource name="reviews" {...reviews} /> */}
 
             <Resource name="users" {...users} />
-            
+            <Resource name="todos" {...todos} />
         </Admin>
     );
 };

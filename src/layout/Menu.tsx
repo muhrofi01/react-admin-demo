@@ -21,6 +21,7 @@ import SubMenu from './SubMenu';
 import { MenuItem } from '@mui/material';
 
 import users from '../users';
+import todos from '../todos';
 
 type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
 
@@ -147,6 +148,17 @@ const Menu = ({ dense = false }: MenuProps) => {
                     smart_count: 2,
                 })}
                 leftIcon={<users.icon />}
+                dense={dense}
+            /> 
+
+            {/* Todos */}
+            <MenuItemLink
+                to="/todos"
+                state={{ _scrollToTop: true }}
+                primaryText={translate(`Todos`, {
+                    smart_count: 2,
+                })}
+                leftIcon={<todos.icon />}
                 dense={dense}
             /> 
             
