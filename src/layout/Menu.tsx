@@ -52,7 +52,7 @@ const Menu = ({ dense = false }: MenuProps) => {
             }}
         >
             <DashboardMenuItem />
-            <SubMenu
+            {/* <SubMenu
                 handleToggle={() => handleToggle('menuSales')}
                 isOpen={state.menuSales}
                 name="pos.menu.sales"
@@ -138,7 +138,7 @@ const Menu = ({ dense = false }: MenuProps) => {
                 })}
                 leftIcon={<reviews.icon />}
                 dense={dense}
-            />
+            /> */}
 
             {/* Users */}
             <MenuItemLink

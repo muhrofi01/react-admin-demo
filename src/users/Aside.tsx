@@ -6,9 +6,11 @@ import {
     FilterLiveSearch,
     SavedQueriesList,
     useGetList,
+    useRecordContext,
 } from 'react-admin';
 
 const Aside = () => {
+    const record = useRecordContext();
 
     return (
         <Card
@@ -22,15 +24,11 @@ const Aside = () => {
             }}
         >
             <CardContent sx={{ pt: 1 }}>
-                {/* <FilterLiveSearch /> */}
+
+                <FilterLiveSearch />
+                
                 <SavedQueriesList />
-
-                <FilterList
-                    label="Group"
-                    icon={<UserIcon />}
-                >
-                </FilterList>
-
+                
             </CardContent>
         </Card>
     );

@@ -5,19 +5,14 @@ import Aside from './Aside';
 
 const TodoList = () => {
     return (
-        <Box display="flex">
-            <Aside />
-            <Box width="calc(100% - 16rem)">
-                <List>
-                    <Datagrid>
-                        <ReferenceField source="userId" reference="users" />
-                        <TextField source="id" />
-                        <TextField source="title" />
-                        <BooleanField source="completed" />
-                    </Datagrid>
-                </List>
-            </Box>
-        </Box>
+        <List aside={<Aside />}>
+            <Datagrid>
+                <ReferenceField source="userId" reference="users" />
+                <TextField source="id" />
+                <TextField source="title" />
+                <BooleanField source="completed" />
+            </Datagrid>
+        </List>
     );
 }
 
