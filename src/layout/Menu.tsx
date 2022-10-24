@@ -18,6 +18,9 @@ import products from '../products';
 import categories from '../categories';
 import reviews from '../reviews';
 import SubMenu from './SubMenu';
+import { MenuItem } from '@mui/material';
+
+import users from '../users';
 
 type MenuName = 'menuCatalog' | 'menuSales' | 'menuCustomers';
 
@@ -48,7 +51,7 @@ const Menu = ({ dense = false }: MenuProps) => {
             }}
         >
             <DashboardMenuItem />
-            <SubMenu
+            {/* <SubMenu
                 handleToggle={() => handleToggle('menuSales')}
                 isOpen={state.menuSales}
                 name="pos.menu.sales"
@@ -134,7 +137,19 @@ const Menu = ({ dense = false }: MenuProps) => {
                 })}
                 leftIcon={<reviews.icon />}
                 dense={dense}
-            />
+            /> */}
+
+            {/* Users */}
+            <MenuItemLink
+                to="/users"
+                state={{ _scrollToTop: true }}
+                primaryText={translate(`Users`, {
+                    smart_count: 2,
+                })}
+                leftIcon={<users.icon />}
+                dense={dense}
+            /> 
+            
         </Box>
     );
 };
