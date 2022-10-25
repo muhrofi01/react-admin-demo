@@ -1,7 +1,6 @@
 import React, { useMemo, CSSProperties } from 'react';
 import { useGetList } from 'react-admin';
 import { useMediaQuery, Theme } from '@mui/material';
-import { subDays, startOfDay } from 'date-fns';
 
 
 import CardWithIcon from './CardWithIcon';
@@ -27,8 +26,8 @@ const Dashboard = () => {
         theme.breakpoints.down('lg')
     );
 
-    const { data: users } = useGetList('users');
-    const { data: todos } = useGetList('todos', { sort: { field: 'id', order: 'DESC' } });
+    const { data: users } = useGetList('users', { pagination: { page: 1, perPage: 300 } });
+    const { data: todos } = useGetList('todos', { pagination: { page: 1, perPage: 300 } });
 
     let countUsers  = users?.length;
     let countTodos  = todos?.length;
