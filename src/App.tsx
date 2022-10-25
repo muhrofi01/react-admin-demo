@@ -65,8 +65,8 @@ const App = () => {
             <Resource name="categories" {...categories} />
             <Resource name="reviews" {...reviews} /> */}
 
-            <Resource name="users" {...users} />
-            <Resource name="todos" {...todos} />
+            <Resource name="users" {...users} recordRepresentation={(record) => `${record.name}`} />
+            <Resource name="todos" {...todos}  />
         </Admin>
     );
 };
